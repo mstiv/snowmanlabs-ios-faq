@@ -1,0 +1,64 @@
+{
+    "lastUpdated" : "22/03/2021",
+    "questions": [
+        {
+            "id":"0",
+            "color":"green",
+            "title":"Em qual data foi fundada a Snowman Labs?",
+            "answer":"A Snowman Labs foi fundada no dia 9 de agosto de 2012."
+        },
+        {
+            "id":"1",
+            "color":"red",
+            "title":"Qual foi o primeiro cliente/ projeto que a Snow teve?",
+            "answer":"O primeiro cliente que a Snow teve foi um candidato a deputado federal e fizemos o projeto dos santinhos digitais. Foi entregue em setembro de 2012."
+        },
+        {
+            "id":"2",
+            "title":"Por que foi escolhido o nome Snowman Labs?",
+            "answer":"Por conta da neve em Curitiba que ocorreu em 2013. Queríamos um mascote e a partir dele, surgiu o nome (foi a primeira coisa que pensamos na época)."
+        },
+        {
+            "id":"3",
+            "color":"yellow",
+            "title":"Quantos funcionários a Snow tinha no primeiro ano de existência?",
+            "answer":"Em nosso primeiro ano éramos apenas 7 funcionários."
+        },
+        {
+            "id":"4",
+            "color":"blue",
+            "title":"Qual é o propósito da Snowman Labs?",
+            "answer":"Servir e impactar pessoas através de tecnologia e design."
+        },
+        {
+            "id":"5",
+            "color":"green",
+            "title":"Qual é a missão da Snowman Labs?",
+            "answer":"Criar soluções que promovam a transformação e evolução digital dos nossos clientes, gerando negócios, resultados e impactando positivamente pessoas e processos."
+        },
+        {
+            "id":"6",
+            "color":"red",
+            "title":"Qual é a visão da Snowman Labs?",
+            "answer":"Ampliar exponencialmente o potencial das empresas e das pessoas através de design e tecnologia."
+        },
+        {
+            "id":"7",
+            "color":"yellow",
+            "title":"Quais são os princípios e valores da Snowman Labs?",
+            "answer":"Fé - que guia as nossas ações \nQualidade - que nos move sempre a darmos o nosso melhor \nTransparência - que constrói a confiança \nRespeito - que honra as pessoas \nRelacionamento - que nos torna uma família \nComprometimento - que nos faz andar mais uma milha \nImpacto - que cria esperança"
+        },
+        {
+            "id":"8",
+            "color":"blue",
+            "title":"Quais stacks são utilizadas na Snowman Labs?",
+            "answer":"A Snow trabalha com diferentes stacks e tecnologias, entre elas estão Java/Kotlin para Android nativo, Swift para iOS, Flutter/Dart, Python, .NET, VueJS, NodeJS…"
+        },
+        {
+            "id":"9",
+            "color":"green",
+            "title":"A Snow é aberta à novas idéias e tecnologias?",
+            "answer":"Sim! A Snow está sempre buscando se manter atualizada sobre novas tecnologias e sempre está aberta à novas ideias e sugestões. Fomos umas das primeiras em Curitiba a adotar o Flutter para projetos em produção e estamos sempre buscando por inovações e melhorias."
+        }
+    ]
+}
