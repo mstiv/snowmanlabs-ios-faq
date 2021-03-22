@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18142C6226087A7E00A6D4F8 /* QuestionColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18142C6126087A7E00A6D4F8 /* QuestionColors.swift */; };
+		18142C722608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18142C712608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift */; };
 		181E6B8726081F6C00025E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8626081F6C00025E15 /* AppDelegate.swift */; };
 		181E6B8926081F6C00025E15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8826081F6C00025E15 /* SceneDelegate.swift */; };
 		181E6B9126081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8F26081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		18142C6126087A7E00A6D4F8 /* QuestionColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionColors.swift; sourceTree = "<group>"; };
+		18142C712608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarControllerContainer.swift; sourceTree = "<group>"; };
 		181E6B8326081F6C00025E15 /* snowmanlabsFAQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snowmanlabsFAQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181E6B8626081F6C00025E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181E6B8826081F6C00025E15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		181E6BCE260823E600025E15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18142C712608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift */,
 				181E6BC5260823D500025E15 /* FAQViewController.swift */,
 				181E6BF62608536A00025E15 /* FAQItemTableViewCell.swift */,
 			);
@@ -388,6 +391,7 @@
 				181E6C182608579C00025E15 /* QuestionsManager.swift in Sources */,
 				181E6C22260857B500025E15 /* QuestionsAPI.swift in Sources */,
 				181E6BC7260823D500025E15 /* FAQViewController.swift in Sources */,
+				18142C722608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift in Sources */,
 				18142C6226087A7E00A6D4F8 /* QuestionColors.swift in Sources */,
 				181E6B8726081F6C00025E15 /* AppDelegate.swift in Sources */,
 				181E6C122608574100025E15 /* Question.swift in Sources */,
