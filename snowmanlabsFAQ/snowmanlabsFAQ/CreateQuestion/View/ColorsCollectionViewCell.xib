@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ColorsCollectionViewCell" customModule="snowmanlabsFAQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="182"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="182"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ow-Yf-7YY">
+                        <rect key="frame" x="130" y="93" width="40" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_white_check" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-fR-uF2">
+                                <rect key="frame" x="7" y="7" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CWD-fR-uF2" secondAttribute="height" multiplier="1:1" id="25L-xT-cbk"/>
+                                    <constraint firstAttribute="height" constant="26" id="qp0-f0-R2a"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="faq_green"/>
+                        <constraints>
+                            <constraint firstItem="CWD-fR-uF2" firstAttribute="centerY" secondItem="0Ow-Yf-7YY" secondAttribute="centerY" id="IQj-M2-p6e"/>
+                            <constraint firstAttribute="width" secondItem="0Ow-Yf-7YY" secondAttribute="height" multiplier="1:1" id="Jfm-4d-bi2"/>
+                            <constraint firstAttribute="width" constant="40" id="f3j-bw-ZkQ"/>
+                            <constraint firstItem="CWD-fR-uF2" firstAttribute="centerX" secondItem="0Ow-Yf-7YY" secondAttribute="centerX" id="mwl-iD-Z6d"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0YR-4B-oUe"/>
+                <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="qFI-aL-Mbo"/>
+            </constraints>
+            <size key="customSize" width="300" height="182"/>
+            <connections>
+                <outlet property="colorView" destination="0Ow-Yf-7YY" id="eKQ-E1-bbr"/>
+                <outlet property="whiteCheckImg" destination="CWD-fR-uF2" id="kJL-Zb-mMk"/>
+            </connections>
+            <point key="canvasLocation" x="311.59420289855075" y="143.97321428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_white_check" width="40" height="40"/>
+        <namedColor name="faq_green">
+            <color red="0.27500000596046448" green="0.78799998760223389" blue="0.65700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

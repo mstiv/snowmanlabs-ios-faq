@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hsN-65-Yfd">
+                    <rect key="frame" x="156" y="483" width="712.5" height="380"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="O6p-nE-iCI">
+                            <variation key="heightClass=regular-widthClass=regular" constant="380"/>
+                        </constraint>
+                        <constraint firstAttribute="width" secondItem="hsN-65-Yfd" secondAttribute="height" multiplier="15:8" id="tC9-K8-t38"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="snowmanlabs_yellow"/>
+            <constraints>
+                <constraint firstItem="hsN-65-Yfd" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="q0P-9T-9VC"/>
+                <constraint firstItem="hsN-65-Yfd" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zBw-Nz-qGh"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="130"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="launchScreenLogo" width="220" height="220"/>
+        <namedColor name="snowmanlabs_yellow">
+            <color red="1" green="0.74579048160000005" blue="0.0087945712730000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
