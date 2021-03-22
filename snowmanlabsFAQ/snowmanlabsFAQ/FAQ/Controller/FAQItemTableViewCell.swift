@@ -7,16 +7,23 @@
 
 import UIKit
 
+enum CellIconState: String {
+    case expanded = "ic_arrow_up"
+    case compressed = "ic_arrow_down"
+}
+
 class FAQItemTableViewCell: UITableViewCell {
 
     //MARK: Outlets
     @IBOutlet var questionBackgroundView: UIView!
     @IBOutlet var questionFrontView: UIView!
     @IBOutlet var lblQuestionTitle: UILabel!
-    @IBOutlet var questionArrow: UIImageView!
+    @IBOutlet var expandCellBtn: UIButton!
+    
     
     //MARK: Variables
     var question: Question?
+    var faqCellDelegate: FAQCellItemDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,4 +46,17 @@ class FAQItemTableViewCell: UITableViewCell {
         self.questionBackgroundView.backgroundColor = UIColor(named: self.question?.questionColor?.rawValue ?? "red")
     }
     
+    func updateCellState(state: CellIconState) {
+        self.expandCellBtn.setImage(UIImage(named: state.rawValue), for: .normal)
+        self.setNeedsLayout()
+        self.expandCellBtn.setNeedsLayout()
+    }
+    
+    @IBAction func expandCellBtnTapped(_ sender: Any) {
+        if let delegate = self.faqCellDelegate {
+            delegate.expandTapped(self) { (newState) in
+                self.updateCellState(state: newState)
+            }
+        }
+    }
 }

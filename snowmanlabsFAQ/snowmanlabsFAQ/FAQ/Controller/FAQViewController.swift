@@ -7,7 +7,11 @@
 
 import UIKit
 
-class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
+protocol FAQCellItemDelegate {
+    func expandTapped(_ cell: FAQItemTableViewCell, completion: @escaping(_ newState: CellIconState) -> Void)
+}
+
+class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FAQCellItemDelegate {
 
 
     //MARK: Outlets
@@ -18,6 +22,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK: Variables
     var searchBarController = UISearchController(searchResultsController: nil)
     var searching : Bool = false
+    var selectedRowIndex : Int = -1
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
@@ -141,13 +146,38 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        if let cell = tableView.cellForRow(at: indexPath) as? FAQItemTableViewCell {
+            if indexPath.row == selectedRowIndex {
+                cell.updateCellState(state: .expanded)
+                return 270 //Expanded
+            }
+            cell.updateCellState(state: .compressed)
+            return 80 //Not expanded
+        }
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell") as! FAQItemTableViewCell
+        cell.faqCellDelegate = self
         return cell
     }
     
 
+    
+    //MARK: Cell Item Delegate
+    func expandTapped(_ cell: FAQItemTableViewCell, completion: @escaping(_ newState: CellIconState) -> Void) {
+        if let indexPath = self.faqTableView.indexPath(for: cell) {
+            if self.selectedRowIndex == indexPath.row {
+                self.selectedRowIndex = -1
+                completion(.compressed)
+            } else {
+                self.selectedRowIndex = indexPath.row
+                completion(.expanded)
+            }
+            self.faqTableView.reloadRows(at: [indexPath], with: .none)
+            self.faqTableView.layoutIfNeeded()
+            self.faqTableView.performBatchUpdates(nil, completion: nil)
+        }
+    }
 }
