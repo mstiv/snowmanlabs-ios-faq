@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="faqCell" rowHeight="138" id="KGk-i7-Jjw" customClass="FAQItemTableViewCell" customModule="snowmanlabsFAQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkk-lh-Acb">
+                        <rect key="frame" x="20" y="11" width="311" height="116"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbR-v6-HfF">
+                                <rect key="frame" x="2" y="0.0" width="309" height="116"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblQuestionTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-Xj-kaq">
+                                        <rect key="frame" x="20" y="47.5" width="128.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="snowmanlabs_blue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-Er-x7m">
+                                        <rect key="frame" x="269" y="48" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Z1r-Xc-bnQ"/>
+                                            <constraint firstAttribute="width" secondItem="dEE-Er-x7m" secondAttribute="height" multiplier="1:1" id="ybw-Z5-cyo"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="3hv-Xj-kaq" firstAttribute="leading" secondItem="FbR-v6-HfF" secondAttribute="leading" constant="20" id="Cd6-PM-et3"/>
+                                    <constraint firstItem="3hv-Xj-kaq" firstAttribute="centerY" secondItem="FbR-v6-HfF" secondAttribute="centerY" id="GfE-UW-cJE"/>
+                                    <constraint firstItem="dEE-Er-x7m" firstAttribute="centerY" secondItem="FbR-v6-HfF" secondAttribute="centerY" id="eax-0h-gKM"/>
+                                    <constraint firstAttribute="trailing" secondItem="dEE-Er-x7m" secondAttribute="trailing" constant="20" id="o7f-Al-hCu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="faq_blue"/>
+                        <constraints>
+                            <constraint firstItem="FbR-v6-HfF" firstAttribute="top" secondItem="Nkk-lh-Acb" secondAttribute="top" id="2Lg-2M-5pd"/>
+                            <constraint firstAttribute="bottom" secondItem="FbR-v6-HfF" secondAttribute="bottom" id="2e3-Cf-qhk"/>
+                            <constraint firstAttribute="trailing" secondItem="FbR-v6-HfF" secondAttribute="trailing" id="Kk0-1c-kOU"/>
+                            <constraint firstItem="FbR-v6-HfF" firstAttribute="leading" secondItem="Nkk-lh-Acb" secondAttribute="leading" constant="2" id="sYo-yx-Igs"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Nkk-lh-Acb" secondAttribute="trailing" id="Dub-5Q-8gl"/>
+                    <constraint firstItem="Nkk-lh-Acb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="JVA-If-jvC"/>
+                    <constraint firstItem="Nkk-lh-Acb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="baO-WW-DMa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Nkk-lh-Acb" secondAttribute="bottom" id="oH2-BF-Zf3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblQuestionTitle" destination="3hv-Xj-kaq" id="gDJ-eC-b82"/>
+                <outlet property="questionArrow" destination="dEE-Er-x7m" id="P3U-xv-qIb"/>
+                <outlet property="questionBackgroundView" destination="Nkk-lh-Acb" id="rde-JA-IaX"/>
+                <outlet property="questionFrontView" destination="FbR-v6-HfF" id="ePZ-hF-sKg"/>
+            </connections>
+            <point key="canvasLocation" x="160.1449275362319" y="175.44642857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_arrow_down" width="44" height="40"/>
+        <namedColor name="faq_blue">
+            <color red="0.059999998658895493" green="0.082000002264976501" blue="0.60699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="snowmanlabs_blue">
+            <color red="0.064999997615814209" green="0.086999997496604919" blue="0.60699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
