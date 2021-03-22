@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18142C6226087A7E00A6D4F8 /* QuestionColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18142C6126087A7E00A6D4F8 /* QuestionColors.swift */; };
 		181E6B8726081F6C00025E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8626081F6C00025E15 /* AppDelegate.swift */; };
 		181E6B8926081F6C00025E15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8826081F6C00025E15 /* SceneDelegate.swift */; };
 		181E6B9126081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 181E6B8F26081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld */; };
@@ -20,6 +21,14 @@
 		181E6BE226082D5300025E15 /* NewQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181E6BE026082D5300025E15 /* NewQuestionViewController.xib */; };
 		181E6BEB2608333E00025E15 /* ColorsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6BE92608333E00025E15 /* ColorsCollectionViewCell.swift */; };
 		181E6BEC2608333E00025E15 /* ColorsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181E6BEA2608333E00025E15 /* ColorsCollectionViewCell.xib */; };
+		181E6BF82608536A00025E15 /* FAQItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6BF62608536A00025E15 /* FAQItemTableViewCell.swift */; };
+		181E6BF92608536A00025E15 /* FAQItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181E6BF72608536A00025E15 /* FAQItemTableViewCell.xib */; };
+		181E6C05260855CF00025E15 /* FAQQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 181E6C04260855CF00025E15 /* FAQQuestions.json */; };
+		181E6C0D2608573300025E15 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C0C2608573300025E15 /* Questions.swift */; };
+		181E6C122608574100025E15 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C112608574100025E15 /* Question.swift */; };
+		181E6C182608579C00025E15 /* QuestionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C172608579C00025E15 /* QuestionsManager.swift */; };
+		181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C1C260857A900025E15 /* QuestionsDAO.swift */; };
+		181E6C22260857B500025E15 /* QuestionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C21260857B500025E15 /* QuestionsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18142C6126087A7E00A6D4F8 /* QuestionColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionColors.swift; sourceTree = "<group>"; };
 		181E6B8326081F6C00025E15 /* snowmanlabsFAQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snowmanlabsFAQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181E6B8626081F6C00025E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181E6B8826081F6C00025E15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,14 @@
 		181E6BE026082D5300025E15 /* NewQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewQuestionViewController.xib; sourceTree = "<group>"; };
 		181E6BE92608333E00025E15 /* ColorsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCollectionViewCell.swift; sourceTree = "<group>"; };
 		181E6BEA2608333E00025E15 /* ColorsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorsCollectionViewCell.xib; sourceTree = "<group>"; };
+		181E6BF62608536A00025E15 /* FAQItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItemTableViewCell.swift; sourceTree = "<group>"; };
+		181E6BF72608536A00025E15 /* FAQItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQItemTableViewCell.xib; sourceTree = "<group>"; };
+		181E6C04260855CF00025E15 /* FAQQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FAQQuestions.json; sourceTree = "<group>"; };
+		181E6C0C2608573300025E15 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		181E6C112608574100025E15 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		181E6C172608579C00025E15 /* QuestionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsManager.swift; sourceTree = "<group>"; };
+		181E6C1C260857A900025E15 /* QuestionsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDAO.swift; sourceTree = "<group>"; };
+		181E6C21260857B500025E15 /* QuestionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +127,11 @@
 		181E6B8526081F6C00025E15 /* snowmanlabsFAQ */ = {
 			isa = PBXGroup;
 			children = (
+				181E6C162608578900025E15 /* Services */,
+				181E6C03260855A800025E15 /* Resources */,
 				181E6BDB26082CF300025E15 /* CreateQuestion */,
 				181E6BDA26082CBE00025E15 /* FAQ */,
+				181E6BCF2608240600025E15 /* LaunchScreen.xib */,
 				181E6B8626081F6C00025E15 /* AppDelegate.swift */,
 				181E6B8826081F6C00025E15 /* SceneDelegate.swift */,
 				181E6B9226081F7200025E15 /* Assets.xcassets */,
@@ -141,6 +162,9 @@
 		181E6BCC260823DD00025E15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				181E6C0C2608573300025E15 /* Questions.swift */,
+				181E6C112608574100025E15 /* Question.swift */,
+				18142C6126087A7E00A6D4F8 /* QuestionColors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,7 +172,7 @@
 		181E6BCD260823E100025E15 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				181E6BCF2608240600025E15 /* LaunchScreen.xib */,
+				181E6BF72608536A00025E15 /* FAQItemTableViewCell.xib */,
 				181E6BC6260823D500025E15 /* FAQViewController.xib */,
 			);
 			path = View;
@@ -158,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				181E6BC5260823D500025E15 /* FAQViewController.swift */,
+				181E6BF62608536A00025E15 /* FAQItemTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +230,24 @@
 				181E6BDF26082D5300025E15 /* NewQuestionViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		181E6C03260855A800025E15 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				181E6C04260855CF00025E15 /* FAQQuestions.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		181E6C162608578900025E15 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				181E6C172608579C00025E15 /* QuestionsManager.swift */,
+				181E6C1C260857A900025E15 /* QuestionsDAO.swift */,
+				181E6C21260857B500025E15 /* QuestionsAPI.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,11 +353,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181E6C05260855CF00025E15 /* FAQQuestions.json in Resources */,
 				181E6B9326081F7200025E15 /* Assets.xcassets in Resources */,
 				181E6BEC2608333E00025E15 /* ColorsCollectionViewCell.xib in Resources */,
 				181E6BD02608240600025E15 /* LaunchScreen.xib in Resources */,
 				181E6BC8260823D500025E15 /* FAQViewController.xib in Resources */,
 				181E6BE226082D5300025E15 /* NewQuestionViewController.xib in Resources */,
+				181E6BF92608536A00025E15 /* FAQItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +385,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				181E6B9126081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld in Sources */,
+				181E6C182608579C00025E15 /* QuestionsManager.swift in Sources */,
+				181E6C22260857B500025E15 /* QuestionsAPI.swift in Sources */,
 				181E6BC7260823D500025E15 /* FAQViewController.swift in Sources */,
+				18142C6226087A7E00A6D4F8 /* QuestionColors.swift in Sources */,
 				181E6B8726081F6C00025E15 /* AppDelegate.swift in Sources */,
+				181E6C122608574100025E15 /* Question.swift in Sources */,
+				181E6BF82608536A00025E15 /* FAQItemTableViewCell.swift in Sources */,
 				181E6BE126082D5300025E15 /* NewQuestionViewController.swift in Sources */,
+				181E6C0D2608573300025E15 /* Questions.swift in Sources */,
 				181E6BEB2608333E00025E15 /* ColorsCollectionViewCell.swift in Sources */,
+				181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */,
 				181E6B8926081F6C00025E15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

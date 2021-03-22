@@ -14,11 +14,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        //Configuring NavigationController
+        let rootViewController = FAQViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.navigationBar.barTintColor = UIColor(named: "snowmanlabs_blue")
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
         //Configuring application main window
         guard let sceneWindow = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: sceneWindow.coordinateSpace.bounds)
         self.window?.windowScene = sceneWindow
-        self.window?.rootViewController = FAQViewController()
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 
