@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: UISceneSession Lifecycle
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        //Call dataManager to check if any sync is needed
+        QuestionsManager().syncQuestions { (_) in
+            //show alert on failure, or try again one more time
+        }
+    }
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
