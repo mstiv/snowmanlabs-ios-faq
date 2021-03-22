@@ -18,6 +18,7 @@ class FAQItemTableViewCell: UITableViewCell {
     @IBOutlet var questionBackgroundView: UIView!
     @IBOutlet var questionFrontView: UIView!
     @IBOutlet var lblQuestionTitle: UILabel!
+    @IBOutlet var questionAnswersTxtView: UITextView!
     @IBOutlet var expandCellBtn: UIButton!
     
     
@@ -33,6 +34,10 @@ class FAQItemTableViewCell: UITableViewCell {
         self.questionFrontView.layer.masksToBounds = true
         self.questionBackgroundView.layer.cornerRadius = 3
         self.questionBackgroundView.layer.masksToBounds = true
+        self.questionAnswersTxtView.isHidden = true
+       // self.questionAnswersTxtView.isUserInteractionEnabled = false
+        self.questionAnswersTxtView.isEditable = false
+        self.questionAnswersTxtView.isScrollEnabled = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,6 +53,15 @@ class FAQItemTableViewCell: UITableViewCell {
     
     func updateCellState(state: CellIconState) {
         self.expandCellBtn.setImage(UIImage(named: state.rawValue), for: .normal)
+        switch state {
+        case .compressed:
+            self.questionAnswersTxtView.isHidden = true
+            break
+        case .expanded:
+            self.questionAnswersTxtView.isHidden = false
+            break
+        }
+        
         self.setNeedsLayout()
         self.expandCellBtn.setNeedsLayout()
     }
