@@ -88,6 +88,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //Instantiate custom searchbar container to be placed as titleView on navigation
         let searchBarContainer = CustomSearchBarControllerContainer(customSearchBarController: searchBarController, delegate: self)
         searchBarContainer.frame = (self.navigationController?.navigationBar.frame)!
+        //CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: 50)//
 
         //Set the custom searchBar
         navigationItem.titleView = searchBarContainer
@@ -147,13 +148,15 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let isUserOnPhone = (UIDevice.current.userInterfaceIdiom == .phone)
+
         if let cell = tableView.cellForRow(at: indexPath) as? FAQItemTableViewCell {
             if indexPath.row == selectedRowIndex {
                 cell.updateCellState(state: .expanded)
-                return 270 //Expanded
+                return isUserOnPhone ? 270 : 420 //Expanded
             }
             cell.updateCellState(state: .compressed)
-            return 80 //Not expanded
+            return isUserOnPhone ? 80 : 124 //Not expanded
         }
         return 80
     }

@@ -14,12 +14,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        //Configuring NavigationController
+        let isUserOnPad = (UIDevice.current.userInterfaceIdiom == .pad)
+
+        //Configuring NavigationController appearance
+        let navigationControllerAppearance = UINavigationBarAppearance()
+        
+
+        if (isUserOnPad) {
+            let ipadTitleFont = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30), NSAttributedString.Key.foregroundColor: UIColor.white]
+            navigationControllerAppearance.titleTextAttributes = ipadTitleFont
+        } else {
+            navigationControllerAppearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+        navigationControllerAppearance.backgroundColor = UIColor(named: "snowmanlabs_blue")
+        
+        //Set navigationBar new appearance
+        UINavigationBar.appearance().standardAppearance = navigationControllerAppearance
+        UINavigationBar.appearance().compactAppearance = navigationControllerAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationControllerAppearance
+        
+        //Configure rootViewController and set navigationController
         let rootViewController = FAQViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
-        navigationController.navigationBar.barTintColor = UIColor(named: "snowmanlabs_blue")
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
+        
         //Configuring application main window
         guard let sceneWindow = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: sceneWindow.coordinateSpace.bounds)

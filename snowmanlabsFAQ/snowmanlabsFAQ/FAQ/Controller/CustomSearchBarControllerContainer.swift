@@ -36,9 +36,11 @@ class CustomSearchBarControllerContainer: UIView {
         self.searchBarController.searchBar.barTintColor = UIColor(named: "snowmanlabs_blue")
         self.searchBarController.searchBar.setImage(UIImage(named: "ic_search_30x30"), for: .search, state: .normal)
         //self.searchBarController.searchBar.setImage(UIImage(named: "ic_close_30x30"), for: .bookmark, state: .normal)
-
+        
+        self.sizeToFit()
         addSubview(searchBarController.searchBar)
       }
+    
       override convenience init(frame: CGRect) {
         self.init(customSearchBarController: UISearchController(), delegate: nil)
           self.frame = frame
