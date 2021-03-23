@@ -30,6 +30,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             self.faqTableView.reloadData()
         }
     }
+    var allQuestions: Array<Question>?
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
@@ -38,10 +39,14 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Do any additional setup after loading the view.
         self.setupView()
         
-        //Get data
-        faqQuestions = QuestionsDAO().getFAQQuestions()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Get data
+        self.reloadFaqQuestions()
+    }
     
     //MARK: View setup
     func setupView() {
@@ -68,6 +73,18 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //Set btn text
         self.createNewQuestionBtn.setTitle("Adicionar Pergunta", for: .normal)
     }
+    
+    
+    //MARK: Methods
+    
+    //Reset all data
+    func reloadFaqQuestions() {
+        QuestionsManager().fetchFAQQuestions(completion: { (newQuestions) in
+            self.faqQuestions = newQuestions
+            self.allQuestions = self.faqQuestions?.questions
+        })
+    }
+    
     
     func showDefaultNavigationBar() {
         //Reset navigation
@@ -118,29 +135,47 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     //MARK: SearchBar delegate
-    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-//        print("closing searchbar")
-//        self.showDefaultNavigationBar()
-    }
-    
-    
-    func didPresentSearchController(_ searchController: UISearchController) {
-        //searchController.searchBar.showsBookmarkButton = true
-    }
-    
-    func didDismissSearchController(_ searchController: UISearchController) {
-       // searchController.searchBar.showsBookmarkButton = false
-    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         self.showDefaultNavigationBar()
         searchBar.endEditing(true)
+        
+        self.reloadFaqQuestions()
     }
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        print("updating search results")
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //Reset to all questions for each search, so if user deleted characters on search text, it can find more results
+        self.faqQuestions?.questions =  self.allQuestions
+        
+        //Perform search
+        if let text = searchBar.text, let currentQuestionsData = self.faqQuestions, let allQuestions = currentQuestionsData.questions {
+            if (text != "") {
+                print("updating search results \(text)")
+                let foundQuestions = allQuestions.filter { (question) -> Bool in
+                    var isTitleOnFilter: Bool = false
+                    var isAnswerOnFilter: Bool = false
+                    
+                    if let title = question.title {
+                        isTitleOnFilter = title.contains(text)
+                    }
+                    if let answer = question.answer {
+                        isAnswerOnFilter = answer.contains(text)
+                    }
+                    
+                    return isAnswerOnFilter || isTitleOnFilter
+                }
+                
+                self.faqQuestions?.questions = foundQuestions
+                self.faqTableView.reloadData()
+                self.faqTableView.layoutIfNeeded()
+            }
+        }
     }
 
     // MARK: Actions
@@ -182,7 +217,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         return UITableViewCell()
     }
-    
+
 
     
     //MARK: Cell Item Delegate

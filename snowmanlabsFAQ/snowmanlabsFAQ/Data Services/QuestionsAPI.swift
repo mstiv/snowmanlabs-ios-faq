@@ -23,7 +23,15 @@ class QuestionsAPI: NSObject {
         //Parse Questions to JSON, they are codable
         
         //Send questions to web service put/post request
-        completion(false)
+        completion(true)
+    }
+    
+    func saveQuestion(with newQuestions: Question, completion: @escaping(_ success: Bool) -> Void) {
+        
+        //Parse Questions to JSON, they are codable
+        
+        //Send questions to web service put/post request
+        completion(true)
     }
     
 }

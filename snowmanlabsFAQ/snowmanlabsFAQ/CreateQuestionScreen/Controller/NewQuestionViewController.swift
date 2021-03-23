@@ -71,6 +71,15 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
         //Register custom cell
         let colorsCollectionViewCellNib = UINib(nibName: "ColorsCollectionViewCell", bundle:nil)
         self.colorsCollectionView.register(colorsCollectionViewCellNib, forCellWithReuseIdentifier: "faqColorsCollectionCell")
+        
+        
+        //Notifications used to make sure that screen content will be visible when keyboard is open
+        NotificationCenter.default.addObserver(self, selector: #selector(updateScrollViewSize(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        //Add gesture to dismiss keyboard on view tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
     }
 
     
@@ -94,13 +103,39 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
             newQuestion.title = self.questionTitleTxtField.text
             newQuestion.answer = self.questionAnswerTxtView.text
             newQuestion.color = self.availableColors[self.selectedRowIndex]
-            QuestionsDAO().saveQuestion(with: newQuestion)
-            self.navigationController?.popViewController(animated: true)
+            QuestionsManager().saveQuestion(newQuestion: newQuestion) { (savedSuccessfully) in
+                if savedSuccessfully {
+                    //QuestionsDAO().saveQuestion(with: newQuestion)
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    //Question will be always saved on DAO, and API will not be verified. If fails to save now, will save when QuestionManager sync the API and local data
+                    //So if error was found, was on local data and would need debug to check the error cause, not simple as API save that would be usually internet conection
+                    
+                    //showAlertMessage(title: "Erro ao salvar nova questão", text: "Ocorreu um erro ao salvar a nova questão. Por favor verifique sua conexão com internet")
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        } else {
+            showAlertMessage(title: "Não foi possível salvar a questão", text: "O campo de título e de resposta deve estar preenchido. Por favor verifique novamente os campos")
         }
         self.hideActivity()
 
     }
     
+    func showAlertMessage(title: String, text: String) {
+        let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func updateScrollViewSize(_ notification: NSNotification) {
+       // self.scrollViewPrincipal.contentSize = CGSize(width: self.scrollViewPrincipal.frame.width, height: self.scrollViewPrincipal.frame.height + self.scrollViewPrincipal.frame.height/2)
+    }
+
     
     //MARK: Data validation
     func allDataIsValid() -> Bool{

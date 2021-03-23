@@ -28,14 +28,32 @@ class QuestionsManager: NSObject {
         //Get local and remote questions
         var daoResult = questionsDAO.getFAQQuestions()
         var apiResult: Questions?
+        
+        self.dispatchGroup.enter()
         questionsAPI.getFAQQuestions { (receivedQuestions) in
             apiResult = receivedQuestions
+            self.dispatchGroup.leave()
         }
         
-        //Check for difs
-        if let remoteResult = apiResult, let localResult = daoResult {
+        //Wait API call
+        dispatchGroup.notify(queue: .main) {
+            
+            //Check local an remote variables
+            guard let localResult = daoResult else {
+                completion(nil)
+                return
+            }
+            guard let remoteResult = apiResult else {
+                //return only local data
+                completion(daoResult)
+                return
+            }
+            
+            //Check for difs since have both remote and local data
             let remoteQuestions = remoteResult.questions ?? []
             let localQuestions = localResult.questions ?? []
+            
+            //Has difs, sync data
             if (remoteQuestions.count != localQuestions.count) {
                 self.syncQuestions { (success) in
                     if (success) {
@@ -47,11 +65,33 @@ class QuestionsManager: NSObject {
                         completion(nil)
                     }
                 }
+            } else {
+                //No difs, it is in sync
+                completion(daoResult)
             }
+        }
+
+    }
+    
+    //Save single question on API and DAO
+    func saveQuestion(newQuestion: Question, completion: @escaping(_ updateStatus: Bool) -> Void) {
+        var currentUpdateStatus = false
+        self.dispatchGroup.enter()
+        
+        //Save locally and remotely
+        currentUpdateStatus = self.questionsDAO.saveQuestion(with: newQuestion)
+        self.questionsAPI.saveQuestion(with: newQuestion) { (remoteStatus) in
+            self.dispatchGroup.leave()
+            currentUpdateStatus = (currentUpdateStatus && remoteStatus)
+        }
+        
+        //After all async calls are done, call completion
+        self.dispatchGroup.notify(queue: .main) {
+             completion(currentUpdateStatus)
         }
     }
     
-    
+    //Save a list of questions on API and DAO
     func saveQuestions(newQuestions: Questions, completion: @escaping(_ updateStatus: Bool) -> Void) {
         var currentUpdateStatus = false
         self.dispatchGroup.enter()
@@ -69,7 +109,7 @@ class QuestionsManager: NSObject {
         }
     }
     
-    
+    ///Just send all DAO to API, that in this logic would update existing IDs and create new ones
     func syncQuestions(completion: @escaping(_ success: Bool) -> Void){
         var syncedWithSuccess = false
         
