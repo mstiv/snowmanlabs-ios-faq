@@ -52,6 +52,7 @@ class FAQItemTableViewCell: UITableViewCell {
         self.questionBackgroundView.backgroundColor = UIColor(named: colorName)
         self.lblQuestionTitle.text = self.question?.title
         self.questionAnswersTxtView.text = self.question?.answer
+        self.questionAnswersTxtView.contentOffset = .zero
     }
     
     func updateCellState(state: CellIconState) {

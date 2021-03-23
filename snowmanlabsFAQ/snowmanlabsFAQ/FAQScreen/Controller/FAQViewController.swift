@@ -11,7 +11,7 @@ protocol FAQCellItemDelegate {
     func expandTapped(_ cell: FAQItemTableViewCell, completion: @escaping(_ newState: CellIconState) -> Void)
 }
 
-class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FAQCellItemDelegate {
+class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, FAQCellItemDelegate {
 
 
     //MARK: Outlets
@@ -52,7 +52,6 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func setupView() {
         self.searchBarController.searchBar.delegate = self
         self.searchBarController.delegate = self
-        self.searchBarController.searchResultsUpdater = self
         self.searchBarController.searchBar.showsBookmarkButton = false
         
         //Add title and search to navigationController
@@ -144,11 +143,6 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.reloadFaqQuestions()
     }
     
-    
-    func updateSearchResults(for searchController: UISearchController) {
-
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //Reset to all questions for each search, so if user deleted characters on search text, it can find more results
         self.faqQuestions?.questions =  self.allQuestions
@@ -197,15 +191,10 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let isUserOnPhone = (UIDevice.current.userInterfaceIdiom == .phone)
 
-        if let cell = tableView.cellForRow(at: indexPath) as? FAQItemTableViewCell {
-            if indexPath.row == selectedRowIndex {
-                cell.updateCellState(state: .expanded)
-                return isUserOnPhone ? 170 : 320 //Expanded
-            }
-            cell.updateCellState(state: .compressed)
-            return isUserOnPhone ? 80 : 120 //Not expanded
+        if indexPath.row == selectedRowIndex {
+            return isUserOnPhone ? 170 : 320 //Expanded
         }
-        return isUserOnPhone ? 80 : 120
+        return isUserOnPhone ? 80 : 120 //Not expanded
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -213,6 +202,11 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell") as! FAQItemTableViewCell
             cell.faqCellDelegate = self
             cell.setupCell(from: questions[indexPath.row])
+            if indexPath.row == selectedRowIndex {
+                cell.updateCellState(state: .expanded)
+            } else {
+                cell.updateCellState(state: .compressed)
+            }
             return cell
         }
         return UITableViewCell()

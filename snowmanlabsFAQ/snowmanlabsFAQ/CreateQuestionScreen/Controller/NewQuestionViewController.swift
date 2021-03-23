@@ -78,6 +78,7 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
         
         //Add gesture to dismiss keyboard on view tap
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
         
     }
