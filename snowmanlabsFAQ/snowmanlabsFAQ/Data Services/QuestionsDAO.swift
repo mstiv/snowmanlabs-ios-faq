@@ -31,15 +31,55 @@ class QuestionsDAO: NSObject {
         }
         //Nothing found on local database, use default file
         questions = self.getDefaultQuestionsFromJsonFile()
+        
+        //Save default questions on local db
+        if let defaultQuestionsFromJson = questions {
+            self.saveQuestions(with: defaultQuestionsFromJson)
+        }
         return questions
     }
     
-    func saveQuestions(with newQuestions: Questions) -> Bool {
-        return false
+    /// Considering only saving new questions now, not editing. To edit would need to call fetchQuestions from localDB and filter by ID to identify received object as new question or existing one
+    func saveQuestion(with newQuestion: Question) -> Bool {
+
+        //Get question UUID
+        //guard let id = UUID(uuidString: newQuestion.id ?? "") else { return false }
+
+        //Generate id for new entity
+        let id = UUID()
+        
+        //Create new entity
+        let newEntity = NSEntityDescription.entity(forEntityName: "QuestionDB", in: context)
+        let questionDB = NSManagedObject(entity: newEntity!, insertInto: context)
+        
+        questionDB.setValue(id, forKey: "id")
+        questionDB.setValue(newQuestion.title, forKey: "title")
+        questionDB.setValue(newQuestion.answer, forKey: "answer")
+        questionDB.setValue(newQuestion.color?.rawValue, forKey: "questionColor")
+        
+        self.updateContext()
+        
+        return true
     }
     
+    func saveQuestions(with newQuestions: Questions) -> Bool {
+        var currentStatus = false
+        if let questions = newQuestions.questions {
+            for question in questions {
+                //And operation so will return false if any save failed
+                self.saveQuestion(with: question)
+            }
+        }
+        return currentStatus
+    }
     
-    
+    private func updateContext() {
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     //MARK: Data validations and getters
     
@@ -62,7 +102,7 @@ class QuestionsDAO: NSObject {
         if(questionsList.count == 0 ) {
             return nil
         }
-        let fetchedQuestions = Questions(fromDB: questionsList)
+        let fetchedQuestions = Questions(questionsFromDB: questionsList)
         return fetchedQuestions
     }
     

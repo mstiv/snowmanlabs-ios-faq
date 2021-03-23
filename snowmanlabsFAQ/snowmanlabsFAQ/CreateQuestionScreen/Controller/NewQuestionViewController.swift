@@ -84,11 +84,13 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
     
     //MARK: Actions
     @IBAction func addQuestionBtnTapped(_ sender: UIButton) {
-        if (self.addQuestionActivityIndicator.isAnimating) {
-            self.hideActivity()
-        } else {
-            self.showActivity()
-        }
+        self.showActivity()
+        let newQuestion = Question()
+        newQuestion.title = self.questionTitleTxtField.text
+        newQuestion.answer = self.questionAnswerTxtView.text
+        QuestionsDAO().saveQuestion(with: newQuestion)
+        self.hideActivity()
+
     }
     
     
