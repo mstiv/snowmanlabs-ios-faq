@@ -162,24 +162,18 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        //ContentCell
-        if (indexPath.section == 0) {
-            //Check user device type
-            let isUserOnPhone = (UIDevice.current.userInterfaceIdiom == .phone)
-            
-            //Set layout according to device type
+        //Check user device type
+        let isUserOnPhone = (UIDevice.current.userInterfaceIdiom == .phone)
+        
+        //Calculate size based on number of cells that should appear. Usefull if in future more colors are available
             //Obs.: If more cores are available, show more on iPad
-            let cellsAcross: CGFloat = isUserOnPhone ? 4 : 4
-            let spaceBetweenCells: CGFloat = 14
-            let dim = (collectionView.bounds.width - (cellsAcross - 1) * spaceBetweenCells) / cellsAcross
-            return CGSize(width: dim, height: dim)
-        } //LoadingData cell
-        else if (indexPath.section == 1) {
-            let collectionViewWidth = self.colorsCollectionView.frame.width
-            return CGSize(width: collectionViewWidth, height: 200)
-        }
-
-        return CGSize(width: 0, height: 0)
+        let cellsAcross: CGFloat = isUserOnPhone ? 4 : 4
+        let spaceBetweenCells: CGFloat = 14
+        let dim = (collectionView.bounds.width - (cellsAcross - 1) * spaceBetweenCells) / cellsAcross
+        
+        //Set size manually
+//        let dim: CGFloat = isUserOnPhone ? 50 : 72
+        return CGSize(width: dim, height: dim)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

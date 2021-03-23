@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 
         if (isUserOnPad) {
-            let ipadTitleFont = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30), NSAttributedString.Key.foregroundColor: UIColor.white]
+            let ipadTitleFont = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26), NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationControllerAppearance.titleTextAttributes = ipadTitleFont
         } else {
             navigationControllerAppearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]

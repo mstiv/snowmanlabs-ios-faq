@@ -29,15 +29,17 @@ class CustomSearchBarControllerContainer: UIView {
         
         self.searchBarController.searchBar.showsCancelButton = true
         self.searchBarController.hidesNavigationBarDuringPresentation = false
+        self.searchBarController.definesPresentationContext = false
         self.searchBarController.searchBar.searchBarStyle = .prominent
         self.searchBarController.searchBar.isTranslucent = false
-        self.searchBarController.view.frame = self.searchBarController.searchBar.frame
-        self.searchBarController.searchBar.layoutIfNeeded()
+//        self.searchBarController.view.frame = self.searchBarController.searchBar.frame
+//        self.searchBarController.searchBar.layoutIfNeeded()
         self.searchBarController.searchBar.barTintColor = UIColor(named: "snowmanlabs_blue")
         self.searchBarController.searchBar.setImage(UIImage(named: "ic_search_30x30"), for: .search, state: .normal)
         //self.searchBarController.searchBar.setImage(UIImage(named: "ic_close_30x30"), for: .bookmark, state: .normal)
         
         self.sizeToFit()
+        self.searchBarController.searchBar.sizeToFit()
         addSubview(searchBarController.searchBar)
       }
     
