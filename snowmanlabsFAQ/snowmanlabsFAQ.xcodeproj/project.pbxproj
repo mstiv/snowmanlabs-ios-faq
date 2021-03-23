@@ -30,6 +30,7 @@
 		181E6C182608579C00025E15 /* QuestionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C172608579C00025E15 /* QuestionsManager.swift */; };
 		181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C1C260857A900025E15 /* QuestionsDAO.swift */; };
 		181E6C22260857B500025E15 /* QuestionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C21260857B500025E15 /* QuestionsAPI.swift */; };
+		1861E07826094EA000A95177 /* CustomImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861E07726094EA000A95177 /* CustomImageButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		181E6C172608579C00025E15 /* QuestionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsManager.swift; sourceTree = "<group>"; };
 		181E6C1C260857A900025E15 /* QuestionsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDAO.swift; sourceTree = "<group>"; };
 		181E6C21260857B500025E15 /* QuestionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAPI.swift; sourceTree = "<group>"; };
+		1861E07726094EA000A95177 /* CustomImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				18142C712608F76A00A6D4F8 /* CustomSearchBarControllerContainer.swift */,
 				181E6BC5260823D500025E15 /* FAQViewController.swift */,
 				181E6BF62608536A00025E15 /* FAQItemTableViewCell.swift */,
+				1861E07726094EA000A95177 /* CustomImageButton.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				181E6C0D2608573300025E15 /* Questions.swift in Sources */,
 				181E6BEB2608333E00025E15 /* ColorsCollectionViewCell.swift in Sources */,
 				181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */,
+				1861E07826094EA000A95177 /* CustomImageButton.swift in Sources */,
 				181E6B8926081F6C00025E15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

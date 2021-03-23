@@ -7,8 +7,9 @@
 
 import UIKit
 
-class NewQuestionViewController: UIViewController {
+class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    //MARK: Outlets
     @IBOutlet var newQuestionView: UIView!
     @IBOutlet var questionTitleLbl: UILabel!
     @IBOutlet var answerTitleLbl: UILabel!
@@ -20,18 +21,108 @@ class NewQuestionViewController: UIViewController {
     @IBOutlet var addQuestionActivityIndicator: UIActivityIndicatorView!
     
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
 
+    //MARK: View Setup
     func setupView() {
-        //Corner radius on all itens
+        //Configure navigation bar
+        self.title = "Adicionar Pergunta"
+        let backButtonItem = UIBarButtonItem(
+            title: .none, style: .plain, target: nil, action: nil)
+        backButtonItem.tintColor = UIColor.white
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButtonItem
+
+        
+        //Corner radius and border on all itens
+        //background view/container
+        self.newQuestionView.layer.cornerRadius = 6
+        self.newQuestionView.layer.masksToBounds = true
+        
+        //QuestionTitle
+        self.questionTitleTxtField.layer.cornerRadius = 6
+        self.questionTitleTxtField.layer.masksToBounds = true
+        self.questionTitleTxtField.layer.borderColor = UIColor(named: "itens_color")?.cgColor
+        self.questionTitleTxtField.layer.borderWidth = 1
+        
+        //QuestionAnswer
+        self.questionAnswerTxtView.layer.cornerRadius = 6
+        self.questionAnswerTxtView.layer.masksToBounds = true
+        self.questionAnswerTxtView.layer.borderColor = UIColor(named: "itens_color")?.cgColor
+        self.questionAnswerTxtView.layer.borderWidth = 1
+        
         
         //Set all texts to default value
+        self.questionTitleLbl.text = " Título da Pergunta "
+        self.answerTitleLbl.text = " Resposta da Pergunta "
+        self.colorsTitleLbl.text = "Cor"
+        self.addQuestionBtn.setTitle("Adicionar", for: .normal)
         
-        //Add border on all textfield and textView from question title and answer
+        //Hide needed itens
+        self.addQuestionActivityIndicator.isHidden = true
+        
+        //Register custom cell
+        let colorsCollectionViewCellNib = UINib(nibName: "ColorsCollectionViewCell", bundle:nil)
+        self.colorsCollectionView.register(colorsCollectionViewCellNib, forCellWithReuseIdentifier: "faqColorsCollectionCell")
     }
 
+    
+    func hideActivity() {
+        self.addQuestionBtn.setTitle("Adicionar", for: .normal)
+        self.addQuestionActivityIndicator.isHidden = true
+        self.addQuestionActivityIndicator.stopAnimating()
+    }
+    
+    func showActivity() {
+        self.addQuestionBtn.setTitle(.none, for: .normal)
+        self.addQuestionActivityIndicator.isHidden = false
+        self.addQuestionActivityIndicator.startAnimating()
+    }
+    
+    //MARK: Actions
+    @IBAction func addQuestionBtnTapped(_ sender: UIButton) {
+        if (self.addQuestionActivityIndicator.isAnimating) {
+            self.hideActivity()
+        } else {
+            self.showActivity()
+        }
+    }
+    
+    
+    //MARK: CollectionView Delegate and Datasource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "faqColorsCollectionCell", for: indexPath) as? ColorsCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //ContentCell
+        if (indexPath.section == 0) {
+            //Check user device type
+            let isUserOnPhone = (UIDevice.current.userInterfaceIdiom == .phone)
+            
+            //Set layout according to device type
+            //Obs.: If more cores are available, show more on iPad
+            let cellsAcross: CGFloat = isUserOnPhone ? 4 : 4
+            let spaceBetweenCells: CGFloat = 14
+            let dim = (collectionView.bounds.width - (cellsAcross - 1) * spaceBetweenCells) / cellsAcross
+            return CGSize(width: dim, height: dim)
+        } //LoadingData cell
+        else if (indexPath.section == 1) {
+            let collectionViewWidth = self.colorsCollectionView.frame.width
+            return CGSize(width: collectionViewWidth, height: 200)
+        }
+
+        return CGSize(width: 0, height: 0)
+    }
 }

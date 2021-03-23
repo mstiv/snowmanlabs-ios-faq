@@ -10,41 +10,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ColorsCollectionViewCell" customModule="snowmanlabsFAQ" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="faqColorsCollectionCell" id="gTV-IL-0wX" customClass="ColorsCollectionViewCell" customModule="snowmanlabsFAQ" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="182"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="300" height="182"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ow-Yf-7YY">
-                        <rect key="frame" x="130" y="93" width="40" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-E8-9o9" userLabel="backGroundView">
+                        <rect key="frame" x="127" y="90" width="46" height="46"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_white_check" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-fR-uF2">
-                                <rect key="frame" x="7" y="7" width="26" height="26"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ow-Yf-7YY">
+                                <rect key="frame" x="3" y="3" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_white_check" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-fR-uF2">
+                                        <rect key="frame" x="5" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CWD-fR-uF2" secondAttribute="height" multiplier="1:1" id="25L-xT-cbk"/>
+                                            <constraint firstAttribute="height" constant="30" id="qp0-f0-R2a"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="faq_green"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="CWD-fR-uF2" secondAttribute="height" multiplier="1:1" id="25L-xT-cbk"/>
-                                    <constraint firstAttribute="height" constant="26" id="qp0-f0-R2a"/>
+                                    <constraint firstItem="CWD-fR-uF2" firstAttribute="centerY" secondItem="0Ow-Yf-7YY" secondAttribute="centerY" id="IQj-M2-p6e"/>
+                                    <constraint firstAttribute="width" secondItem="0Ow-Yf-7YY" secondAttribute="height" multiplier="1:1" id="Jfm-4d-bi2"/>
+                                    <constraint firstAttribute="width" constant="40" id="f3j-bw-ZkQ"/>
+                                    <constraint firstItem="CWD-fR-uF2" firstAttribute="centerX" secondItem="0Ow-Yf-7YY" secondAttribute="centerX" id="mwl-iD-Z6d"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" name="faq_green"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CWD-fR-uF2" firstAttribute="centerY" secondItem="0Ow-Yf-7YY" secondAttribute="centerY" id="IQj-M2-p6e"/>
-                            <constraint firstAttribute="width" secondItem="0Ow-Yf-7YY" secondAttribute="height" multiplier="1:1" id="Jfm-4d-bi2"/>
-                            <constraint firstAttribute="width" constant="40" id="f3j-bw-ZkQ"/>
-                            <constraint firstItem="CWD-fR-uF2" firstAttribute="centerX" secondItem="0Ow-Yf-7YY" secondAttribute="centerX" id="mwl-iD-Z6d"/>
+                            <constraint firstAttribute="height" secondItem="0Ow-Yf-7YY" secondAttribute="height" constant="6" id="5HH-q7-Bag"/>
+                            <constraint firstAttribute="width" secondItem="0Ow-Yf-7YY" secondAttribute="width" constant="6" id="OBK-Pr-hOp"/>
+                            <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerX" secondItem="4rf-E8-9o9" secondAttribute="centerX" id="b8v-lE-mwi"/>
+                            <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerY" secondItem="4rf-E8-9o9" secondAttribute="centerY" id="rKE-2I-Lmg"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0YR-4B-oUe"/>
-                <constraint firstItem="0Ow-Yf-7YY" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="qFI-aL-Mbo"/>
+                <constraint firstItem="4rf-E8-9o9" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ZjC-qw-V8d"/>
+                <constraint firstItem="4rf-E8-9o9" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="fMf-OT-DKQ"/>
             </constraints>
             <size key="customSize" width="300" height="182"/>
             <connections>
+                <outlet property="colorBackgroundView" destination="4rf-E8-9o9" id="QMb-tx-qWa"/>
                 <outlet property="colorView" destination="0Ow-Yf-7YY" id="eKQ-E1-bbr"/>
                 <outlet property="whiteCheckImg" destination="CWD-fR-uF2" id="kJL-Zb-mMk"/>
             </connections>
