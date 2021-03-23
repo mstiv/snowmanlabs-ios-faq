@@ -20,6 +20,10 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var addQuestionBtn: UIButton!
     @IBOutlet var addQuestionActivityIndicator: UIActivityIndicatorView!
     
+    //MARK: Variables
+    var availableColors:[QuestionColors] = [.red, .green, .yellow, .blue]
+    var selectedRowIndex : Int = 0
+
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -85,24 +89,38 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
     //MARK: Actions
     @IBAction func addQuestionBtnTapped(_ sender: UIButton) {
         self.showActivity()
-        let newQuestion = Question()
-        newQuestion.title = self.questionTitleTxtField.text
-        newQuestion.answer = self.questionAnswerTxtView.text
-        QuestionsDAO().saveQuestion(with: newQuestion)
+        if self.allDataIsValid() {
+            let newQuestion = Question()
+            newQuestion.title = self.questionTitleTxtField.text
+            newQuestion.answer = self.questionAnswerTxtView.text
+            newQuestion.color = self.availableColors[self.selectedRowIndex]
+            QuestionsDAO().saveQuestion(with: newQuestion)
+            self.navigationController?.popViewController(animated: true)
+        }
         self.hideActivity()
 
     }
     
     
+    //MARK: Data validation
+    func allDataIsValid() -> Bool{
+        var dataStatus = (self.questionTitleTxtField.text != "" && self.questionTitleTxtField.text != " ")
+        dataStatus = (dataStatus && (self.questionAnswerTxtView.text != "" && self.questionAnswerTxtView.text != " "))
+        return dataStatus
+    }
+    
     //MARK: CollectionView Delegate and Datasource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return availableColors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "faqColorsCollectionCell", for: indexPath) as? ColorsCollectionViewCell else {
             return UICollectionViewCell()
         }
+        let isSelectedRow: Bool = (selectedRowIndex == indexPath.row)
+        cell.setColor(from: self.availableColors[indexPath.row])
+        cell.setSelected(isSelected: isSelectedRow)
         return cell
     }
     
@@ -126,5 +144,10 @@ class NewQuestionViewController: UIViewController, UICollectionViewDelegate, UIC
         }
 
         return CGSize(width: 0, height: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedRowIndex = indexPath.row
+        self.colorsCollectionView.reloadData()
     }
 }

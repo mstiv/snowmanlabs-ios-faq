@@ -36,10 +36,18 @@ class ColorsCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func setColor(from cellColor: QuestionColors) {
+        self.colorView.backgroundColor = UIColor(named: ColorConstants().COLORS_PREFIX_NAME + cellColor.rawValue) ?? UIColor(named: ColorConstants().COLORS_PREFIX_NAME + ColorConstants().DEFAULT_FAQ_QUESTION_COLOR)
+    }
+    
     //MARK: Actions
     func toggleSelected() {
         //Toggle check img visibility
-        
+        self.whiteCheckImg.isHidden = !self.whiteCheckImg.isHidden
+    }
+    
+    func setSelected(isSelected: Bool) {
+        self.whiteCheckImg.isHidden = !isSelected
     }
     
 }

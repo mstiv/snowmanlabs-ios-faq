@@ -67,7 +67,8 @@ class QuestionsDAO: NSObject {
         if let questions = newQuestions.questions {
             for question in questions {
                 //And operation so will return false if any save failed
-                self.saveQuestion(with: question)
+                let saveStatus = self.saveQuestion(with: question)
+                currentStatus = currentStatus && saveStatus
             }
         }
         return currentStatus
