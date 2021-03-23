@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addQuestionLbl" destination="ZCd-PB-ojk" id="pWF-o0-fSP"/>
                 <outlet property="addQuestionView" destination="ImY-EU-W0M" id="pGU-Fm-nDU"/>
+                <outlet property="createNewQuestionBtn" destination="IM8-yh-2Re" id="BVs-t3-BMh"/>
                 <outlet property="faqTableView" destination="OyI-Ae-jIw" id="RaZ-hu-MeN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,35 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImY-EU-W0M">
-                    <rect key="frame" x="16" y="605" width="343" height="42"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_plus_icon_blue" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-Ut-gQn">
-                            <rect key="frame" x="307" y="13" width="16" height="16"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="16" id="Hmg-dc-ntI">
-                                    <variation key="heightClass=regular-widthClass=regular" constant="42"/>
-                                </constraint>
-                                <constraint firstAttribute="width" secondItem="MJl-Ut-gQn" secondAttribute="height" multiplier="1:1" id="hNf-Z7-Gbq"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" name="snowmanlabs_yellow"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="MJl-Ut-gQn" secondAttribute="trailing" constant="20" id="A3a-Iw-7hA"/>
-                        <constraint firstAttribute="height" constant="42" id="JaY-n4-0EV"/>
-                        <constraint firstItem="MJl-Ut-gQn" firstAttribute="centerY" secondItem="ImY-EU-W0M" secondAttribute="centerY" id="wLQ-61-ozr"/>
-                    </constraints>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblAddQuestion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-PB-ojk">
-                    <rect key="frame" x="121" y="615.5" width="133.5" height="21.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <color key="textColor" name="snowmanlabs_blue"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                    </variation>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OyI-Ae-jIw">
                     <rect key="frame" x="32" y="20" width="311" height="559"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,24 +31,76 @@
                         <outlet property="delegate" destination="-1" id="hfQ-H5-2kc"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImY-EU-W0M">
+                    <rect key="frame" x="16" y="605" width="343" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_plus_icon_blue" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-Ut-gQn">
+                            <rect key="frame" x="307" y="13" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="Hmg-dc-ntI">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="42"/>
+                                </constraint>
+                                <constraint firstAttribute="width" secondItem="MJl-Ut-gQn" secondAttribute="height" multiplier="1:1" id="hNf-Z7-Gbq"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lblAddQuestion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-PB-ojk">
+                            <rect key="frame" x="104" y="10" width="133.5" height="21.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" name="snowmanlabs_blue"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="snowmanlabs_yellow"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM8-yh-2Re" customClass="CustomImageButton" customModule="snowmanlabsFAQ" customModuleProvider="target">
+                    <rect key="frame" x="16" y="605" width="343" height="42"/>
+                    <color key="backgroundColor" name="snowmanlabs_yellow"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="j2o-5N-C0D"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="addQuestionBtn" image="ic_plus_icon_blue">
+                        <color key="titleColor" name="snowmanlabs_blue"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="createNewQuestionTapped:" destination="-1" eventType="touchUpInside" id="WIf-NA-lBK"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ImY-EU-W0M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1xi-VH-kjG"/>
-                <constraint firstItem="ZCd-PB-ojk" firstAttribute="centerX" secondItem="ImY-EU-W0M" secondAttribute="centerX" id="2Bt-5x-z97"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ImY-EU-W0M" secondAttribute="trailing" constant="16" id="3ND-Nu-26v"/>
-                <constraint firstItem="ImY-EU-W0M" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Lm6-pk-Z5C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IM8-yh-2Re" secondAttribute="bottom" constant="20" id="5zz-3y-Qtk"/>
+                <constraint firstItem="IM8-yh-2Re" firstAttribute="top" secondItem="OyI-Ae-jIw" secondAttribute="bottom" constant="26" id="8cB-Vs-lCF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IM8-yh-2Re" secondAttribute="trailing" constant="16" id="M7b-0W-eey"/>
                 <constraint firstAttribute="trailingMargin" secondItem="OyI-Ae-jIw" secondAttribute="trailing" constant="16" id="Rd7-g7-VV9"/>
+                <constraint firstItem="IM8-yh-2Re" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="fCa-3F-jdV"/>
                 <constraint firstItem="OyI-Ae-jIw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="16" id="mS0-VZ-bGg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ImY-EU-W0M" secondAttribute="bottom" constant="20" id="nsd-EA-ni8"/>
-                <constraint firstItem="ImY-EU-W0M" firstAttribute="top" secondItem="OyI-Ae-jIw" secondAttribute="bottom" constant="26" id="qYJ-Gi-dtZ"/>
-                <constraint firstItem="ZCd-PB-ojk" firstAttribute="centerY" secondItem="ImY-EU-W0M" secondAttribute="centerY" id="sht-20-VfK"/>
                 <constraint firstItem="OyI-Ae-jIw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="xRu-Om-CKi"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="ImY-EU-W0M"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-204" y="129.98500749625188"/>
         </view>
     </objects>
+    <designables>
+        <designable name="IM8-yh-2Re">
+            <size key="intrinsicContentSize" width="305" height="165"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_plus_icon_blue" width="164" height="165"/>
         <namedColor name="snowmanlabs_blue">

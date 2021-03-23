@@ -18,6 +18,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var faqTableView: UITableView!
     @IBOutlet var addQuestionView: UIView!
     @IBOutlet var addQuestionLbl: UILabel!
+    @IBOutlet var createNewQuestionBtn: CustomImageButton!
     
     //MARK: Variables
     var searchBarController = UISearchController(searchResultsController: nil)
@@ -33,6 +34,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     
+    //MARK: View setup
     func setupView() {
         self.searchBarController.searchBar.delegate = self
         self.searchBarController.delegate = self
@@ -53,6 +55,9 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //Register custom cell
         let faqItemCell = UINib(nibName: "FAQItemTableViewCell", bundle:nil)
         self.faqTableView.register(faqItemCell, forCellReuseIdentifier: "faqCell")
+        
+        //Set btn text
+        self.createNewQuestionBtn.setTitle("Adicionar Pergunta", for: .normal)
     }
     
     func showDefaultNavigationBar() {
@@ -128,6 +133,13 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         print("updating search results")
     }
 
+    // MARK: Actions
+    @IBAction func createNewQuestionTapped(_ sender: CustomImageButton) {
+        let newQuestionVC = NewQuestionViewController(nibName: "NewQuestionViewController", bundle: nil)
+        self.navigationController?.pushViewController(newQuestionVC, animated: true)
+    }
+    
+    
     
     // MARK: TableView datasource and delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
