@@ -15,6 +15,7 @@
         },
         {
             "id":"2",
+            "color":"green",
             "title":"Por que foi escolhido o nome Snowman Labs?",
             "answer":"Por conta da neve em Curitiba que ocorreu em 2013. Queríamos um mascote e a partir dele, surgiu o nome (foi a primeira coisa que pensamos na época)."
         },

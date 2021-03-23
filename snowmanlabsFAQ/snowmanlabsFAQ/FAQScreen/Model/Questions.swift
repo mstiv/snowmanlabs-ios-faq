@@ -12,4 +12,12 @@ class Questions: NSObject, Codable {
 
     var questions: Array<Question>?
     var lastUpdated: String?
+    
+   init(fromDB: Array<QuestionDB>) {
+        
+    }
+    
+    override init () {
+        super.init()
+    }
 }

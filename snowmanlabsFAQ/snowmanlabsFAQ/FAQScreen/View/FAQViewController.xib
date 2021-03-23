@@ -74,6 +74,9 @@
                             <real key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                    </variation>
                     <connections>
                         <action selector="createNewQuestionTapped:" destination="-1" eventType="touchUpInside" id="WIf-NA-lBK"/>
                     </connections>
@@ -100,7 +103,7 @@
     </objects>
     <designables>
         <designable name="IM8-yh-2Re">
-            <size key="intrinsicContentSize" width="305" height="165"/>
+            <size key="intrinsicContentSize" width="371" height="165"/>
         </designable>
     </designables>
     <resources>

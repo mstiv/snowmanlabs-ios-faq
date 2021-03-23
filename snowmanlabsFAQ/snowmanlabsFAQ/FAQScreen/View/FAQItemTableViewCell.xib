@@ -25,7 +25,7 @@
                                 <rect key="frame" x="2" y="0.0" width="289" height="133"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblQuestionTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-Xj-kaq">
-                                        <rect key="frame" x="20" y="10" width="128.5" height="21"/>
+                                        <rect key="frame" x="20" y="10" width="219" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="snowmanlabs_blue"/>
                                         <nil key="highlightedColor"/>
@@ -60,12 +60,15 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="3hv-Xj-kaq" firstAttribute="top" secondItem="FbR-v6-HfF" secondAttribute="top" priority="750" constant="10" id="5J8-Ps-Nf5"/>
+                                    <constraint firstItem="3hv-Xj-kaq" firstAttribute="top" secondItem="FbR-v6-HfF" secondAttribute="top" priority="750" constant="10" id="5J8-Ps-Nf5">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
                                     <constraint firstItem="6xc-2f-fb0" firstAttribute="leading" secondItem="FbR-v6-HfF" secondAttribute="leading" constant="20" id="5Yi-Ri-myL"/>
                                     <constraint firstItem="3hv-Xj-kaq" firstAttribute="leading" secondItem="FbR-v6-HfF" secondAttribute="leading" constant="20" id="Cd6-PM-et3"/>
                                     <constraint firstItem="6xc-2f-fb0" firstAttribute="top" secondItem="3hv-Xj-kaq" secondAttribute="bottom" priority="250" constant="20" id="Hhr-We-fX9"/>
                                     <constraint firstAttribute="bottom" secondItem="6xc-2f-fb0" secondAttribute="bottom" priority="750" constant="20" id="Qcj-fY-HN0"/>
                                     <constraint firstAttribute="trailing" secondItem="6xc-2f-fb0" secondAttribute="trailing" constant="20" id="RfQ-QG-YIX"/>
+                                    <constraint firstItem="fEs-aI-odA" firstAttribute="leading" secondItem="3hv-Xj-kaq" secondAttribute="trailing" constant="8" id="V7Y-ET-kUP"/>
                                     <constraint firstItem="fEs-aI-odA" firstAttribute="centerY" secondItem="3hv-Xj-kaq" secondAttribute="centerY" id="gEj-ip-GPH"/>
                                     <constraint firstAttribute="trailing" secondItem="fEs-aI-odA" secondAttribute="trailing" constant="20" id="lyx-4L-Esz"/>
                                 </constraints>

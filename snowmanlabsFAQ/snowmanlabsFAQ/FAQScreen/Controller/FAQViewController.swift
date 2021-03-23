@@ -25,12 +25,21 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var searching : Bool = false
     var selectedRowIndex : Int = -1
     
+    var faqQuestions: Questions? {
+        didSet {
+            self.faqTableView.reloadData()
+        }
+    }
+    
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupView()
+        
+        //Get data
+        faqQuestions = QuestionsDAO().getFAQQuestions()
     }
 
     
@@ -144,7 +153,10 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: TableView datasource and delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        if let questions = faqQuestions?.questions {
+           return questions.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -153,18 +165,22 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         if let cell = tableView.cellForRow(at: indexPath) as? FAQItemTableViewCell {
             if indexPath.row == selectedRowIndex {
                 cell.updateCellState(state: .expanded)
-                return isUserOnPhone ? 270 : 420 //Expanded
+                return isUserOnPhone ? 170 : 320 //Expanded
             }
             cell.updateCellState(state: .compressed)
-            return isUserOnPhone ? 80 : 124 //Not expanded
+            return isUserOnPhone ? 80 : 120 //Not expanded
         }
-        return 80
+        return isUserOnPhone ? 80 : 120
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell") as! FAQItemTableViewCell
-        cell.faqCellDelegate = self
-        return cell
+        if let questions = faqQuestions?.questions {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell") as! FAQItemTableViewCell
+            cell.faqCellDelegate = self
+            cell.setupCell(from: questions[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
     }
     
 

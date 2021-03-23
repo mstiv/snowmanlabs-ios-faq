@@ -10,8 +10,8 @@ import UIKit
 
 class Question: NSObject, Codable {
 
-    var id: Int?
-    var questionColor: QuestionColors?
+    var id: String?
+    var color: QuestionColors?
     var title: String?
     var answer: String?
 }

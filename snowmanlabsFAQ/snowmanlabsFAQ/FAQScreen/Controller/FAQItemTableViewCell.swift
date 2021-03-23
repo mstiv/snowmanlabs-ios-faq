@@ -48,7 +48,10 @@ class FAQItemTableViewCell: UITableViewCell {
     
     func setupCell(from question: Question) {
         self.question = question
-        self.questionBackgroundView.backgroundColor = UIColor(named: self.question?.questionColor?.rawValue ?? "red")
+        let colorName:String  = ColorConstants().COLORS_PREFIX_NAME + (self.question?.color?.rawValue ?? ColorConstants().DEFAULT_FAQ_QUESTION_COLOR)
+        self.questionBackgroundView.backgroundColor = UIColor(named: colorName)
+        self.lblQuestionTitle.text = self.question?.title
+        self.questionAnswersTxtView.text = self.question?.answer
     }
     
     func updateCellState(state: CellIconState) {

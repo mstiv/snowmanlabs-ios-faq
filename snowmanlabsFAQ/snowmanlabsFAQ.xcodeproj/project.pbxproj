@@ -31,6 +31,7 @@
 		181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C1C260857A900025E15 /* QuestionsDAO.swift */; };
 		181E6C22260857B500025E15 /* QuestionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C21260857B500025E15 /* QuestionsAPI.swift */; };
 		1861E07826094EA000A95177 /* CustomImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861E07726094EA000A95177 /* CustomImageButton.swift */; };
+		18D581152609A71A00966508 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D581142609A71A00966508 /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		181E6C1C260857A900025E15 /* QuestionsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDAO.swift; sourceTree = "<group>"; };
 		181E6C21260857B500025E15 /* QuestionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAPI.swift; sourceTree = "<group>"; };
 		1861E07726094EA000A95177 /* CustomImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageButton.swift; sourceTree = "<group>"; };
+		18D581142609A71A00966508 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,16 +133,16 @@
 		181E6B8526081F6C00025E15 /* snowmanlabsFAQ */ = {
 			isa = PBXGroup;
 			children = (
-				181E6C162608578900025E15 /* Services */,
+				181E6C162608578900025E15 /* Data Services */,
+				18D581192609A73600966508 /* Constants */,
 				181E6C03260855A800025E15 /* Resources */,
-				181E6BDB26082CF300025E15 /* CreateQuestion */,
-				181E6BDA26082CBE00025E15 /* FAQ */,
+				181E6BDB26082CF300025E15 /* CreateQuestionScreen */,
+				181E6BDA26082CBE00025E15 /* FAQScreen */,
 				181E6BCF2608240600025E15 /* LaunchScreen.xib */,
 				181E6B8626081F6C00025E15 /* AppDelegate.swift */,
 				181E6B8826081F6C00025E15 /* SceneDelegate.swift */,
 				181E6B9226081F7200025E15 /* Assets.xcassets */,
 				181E6B9726081F7200025E15 /* Info.plist */,
-				181E6B8F26081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld */,
 			);
 			path = snowmanlabsFAQ;
 			sourceTree = "<group>";
@@ -193,24 +195,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		181E6BDA26082CBE00025E15 /* FAQ */ = {
+		181E6BDA26082CBE00025E15 /* FAQScreen */ = {
 			isa = PBXGroup;
 			children = (
 				181E6BCC260823DD00025E15 /* Model */,
 				181E6BCD260823E100025E15 /* View */,
 				181E6BCE260823E600025E15 /* Controller */,
 			);
-			path = FAQ;
+			path = FAQScreen;
 			sourceTree = "<group>";
 		};
-		181E6BDB26082CF300025E15 /* CreateQuestion */ = {
+		181E6BDB26082CF300025E15 /* CreateQuestionScreen */ = {
 			isa = PBXGroup;
 			children = (
 				181E6BDC26082CFC00025E15 /* Model */,
 				181E6BDD26082D0200025E15 /* View */,
 				181E6BDE26082D0600025E15 /* Controller */,
 			);
-			path = CreateQuestion;
+			path = CreateQuestionScreen;
 			sourceTree = "<group>";
 		};
 		181E6BDC26082CFC00025E15 /* Model */ = {
@@ -246,14 +248,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		181E6C162608578900025E15 /* Services */ = {
+		181E6C162608578900025E15 /* Data Services */ = {
 			isa = PBXGroup;
 			children = (
+				181E6B8F26081F6C00025E15 /* snowmanlabsFAQ.xcdatamodeld */,
 				181E6C172608579C00025E15 /* QuestionsManager.swift */,
 				181E6C1C260857A900025E15 /* QuestionsDAO.swift */,
 				181E6C21260857B500025E15 /* QuestionsAPI.swift */,
 			);
-			path = Services;
+			path = "Data Services";
+			sourceTree = "<group>";
+		};
+		18D581192609A73600966508 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				18D581142609A71A00966508 /* ColorConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +412,7 @@
 				181E6BF82608536A00025E15 /* FAQItemTableViewCell.swift in Sources */,
 				181E6BE126082D5300025E15 /* NewQuestionViewController.swift in Sources */,
 				181E6C0D2608573300025E15 /* Questions.swift in Sources */,
+				18D581152609A71A00966508 /* ColorConstants.swift in Sources */,
 				181E6BEB2608333E00025E15 /* ColorsCollectionViewCell.swift in Sources */,
 				181E6C1D260857A900025E15 /* QuestionsDAO.swift in Sources */,
 				1861E07826094EA000A95177 /* CustomImageButton.swift in Sources */,
